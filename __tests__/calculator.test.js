@@ -1,14 +1,13 @@
-import { GalacticAge } from "../src/calculator";
+import { coinCounter } from "../src/coin-counter";
 
-describe('GalacticAge', () => {
-  
-  let galacticAge;
+describe('coinCounter', () => {
+  const amount = 4.99;
 
-  beforeEach(() => {
-    galacticAge = new GalacticAge(10);
+  test('should return a string', () => {
+    expect(typeof coinCounter(amount)).toEqual('string');
   });
 
-  test('should correctly create a GalacticAge object with one property', () => {
-    expect(galacticAge.earthYears).toEqual(10);
+  test('should return a string with the correct number of quarters', () => {
+    expect(coinCounter(amount)).toEqual('19 quarters');
   });
 })
