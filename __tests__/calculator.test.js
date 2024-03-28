@@ -27,15 +27,15 @@ describe('closureCoinCounter', () => {
 
   test('should return a string', () => {
     const coinCounter = closureCoinCounter(4.75);
-    expect(typeof coinCounter()).toEqual('string');
+    expect(typeof coinCounter()()()()).toEqual('string');
   });
 
   test('should return a string with the correct number of quarters', () => {
     const coinCounter = closureCoinCounter(4.75);
-    expect(coinCounter()).toEqual('19 quarter(s)');
+    expect(coinCounter()()()()).toEqual('19 quarter(s), 0 dime(s), 0 nickel(s), 0 pennie(s)');
   });
 
   test('should return a string with the correct change', () => {
-    expect(coinCounter(4.99)).toEqual('19 quarter (s), 2 dime(s), 0 nickel(s), 4 pennie(s)');
+    expect(closureCoinCounter(4.99)()()()()).toEqual('19 quarter(s), 2 dime(s), 0 nickel(s), 4 pennie(s)');
   });
 })

@@ -31,6 +31,18 @@ export function closureCoinCounter(amount) {
     amount = amount.toPrecision(3);
     return function() {
         const quarters = Math.floor(amount / .25);
-        return `${quarters} quarter(s)`
+        amount = (amount - quarters * .25).toPrecision(3);
+        return function() {
+            const dimes = Math.floor(amount / .1);
+            amount = (amount - dimes * .1).toPrecision(3);
+            return function() {
+                const nickels = Math.floor(amount / .05);
+                amount = (amount - nickels * .05).toPrecision(3);
+                return function() {
+                    const pennies = Math.floor(amount / .01);
+                    return `${quarters} quarter(s), ${dimes} dime(s), ${nickels} nickel(s), ${pennies} pennie(s)`
+                }
+            }
+        }
     }
   }
