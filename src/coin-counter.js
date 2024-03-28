@@ -28,7 +28,9 @@ export function coinCounter(amount, result) {
 }
 
 export function closureCoinCounter(amount) {
+    amount = amount.toPrecision(3);
     return function() {
-      return ``
+        const quarters = Math.floor(amount / .25);
+        return `${quarters} quarter(s)`
     }
   }
