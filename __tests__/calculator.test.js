@@ -34,4 +34,8 @@ describe('closureCoinCounter', () => {
     const coinCounter = closureCoinCounter(4.75);
     expect(coinCounter()).toEqual('19 quarter(s)');
   });
+
+  test('should return a string with the correct change', () => {
+    expect(coinCounter(4.99)).toEqual('19 quarter (s), 2 dime(s), 0 nickel(s), 4 pennie(s)');
+  });
 })
