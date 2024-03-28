@@ -1,4 +1,4 @@
-import { coinCounter } from "../src/coin-counter";
+import { coinCounter, closureCoinCounter } from "../src/coin-counter";
 
 describe('coinCounter', () => {
 
@@ -20,5 +20,13 @@ describe('coinCounter', () => {
 
   test('should return a correctly displayed string when there are no quarters', () => {
     expect(coinCounter(.24)).toEqual('2 dime(s), 4 pennie(s)');
+  });
+})
+
+describe('closureCoinCounter', () => {
+
+  test('should return a string', () => {
+    const coinCounter = closureCoinCounter(4.75);
+    expect(typeof coinCounter()).toEqual('string');
   });
 })

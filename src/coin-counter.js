@@ -26,3 +26,9 @@ export function coinCounter(amount, result) {
         }
     return coinCounter(amount - quarters * .25, `${quarters} quarter(s)`);
 }
+
+export function closureCoinCounter(amount) {
+    return function() {
+      return ``
+    }
+  }
