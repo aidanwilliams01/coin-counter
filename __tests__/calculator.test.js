@@ -29,4 +29,9 @@ describe('closureCoinCounter', () => {
     const coinCounter = closureCoinCounter(4.75);
     expect(typeof coinCounter()).toEqual('string');
   });
+
+  test('should return a string with the correct number of quarters', () => {
+    const coinCounter = closureCoinCounter(4.75);
+    expect(coinCounter()).toEqual('19 quarter(s)');
+  });
 })
