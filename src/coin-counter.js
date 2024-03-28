@@ -23,7 +23,7 @@ export function coinCounter(amount, result) {
         else {
             return coinCounter(amount - dimes * .1, result + `, ${dimes} dime(s)`);
         }
-        }
+    }
     return coinCounter(amount - quarters * .25, `${quarters} quarter(s)`);
 }
 
@@ -40,9 +40,9 @@ export function closureCoinCounter(amount) {
                 amount = (amount - nickels * .05).toPrecision(3);
                 return function() {
                     const pennies = Math.floor(amount / .01);
-                    return `${quarters} quarter(s), ${dimes} dime(s), ${nickels} nickel(s), ${pennies} pennie(s)`
-                }
-            }
-        }
-    }
-  }
+                    return `${quarters} quarter(s), ${dimes} dime(s), ${nickels} nickel(s), ${pennies} pennie(s)`;
+                };
+            };
+        };
+    };
+}
